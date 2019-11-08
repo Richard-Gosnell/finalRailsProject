@@ -5,7 +5,7 @@ ActiveAdmin.register Author do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :author_name, :book_name
+  permit_params :author_name, :book_name
   #
   # or
   #
@@ -14,5 +14,5 @@ ActiveAdmin.register Author do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end
