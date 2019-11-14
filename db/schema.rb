@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_155151) do
+ActiveRecord::Schema.define(version: 2019_11_14_032854) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2019_11_08_155151) do
 
   create_table "authors", force: :cascade do |t|
     t.string "author_name"
-    t.string "book_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

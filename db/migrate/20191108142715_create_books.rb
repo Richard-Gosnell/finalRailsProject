@@ -7,7 +7,7 @@ class CreateBooks < ActiveRecord::Migration[6.0]
       t.integer :page_count
       t.string :author
       t.string :genre
-      t.decimal :price, scale: 2
+      t.decimal :price
 
       t.timestamps
     end
