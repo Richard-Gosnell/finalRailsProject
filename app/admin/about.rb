@@ -2,7 +2,7 @@
 
 ActiveAdmin.register_page 'About' do
   content do
-    render partial: 'pages/about'
+    render partial: 'pages/_about'
   end
   # form_with do
   # end
