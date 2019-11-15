@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+# County Select gem
+gem 'country_select', '~> 4.0'
+
 # Active Admin gem
 gem 'activeadmin'
 gem 'devise'
