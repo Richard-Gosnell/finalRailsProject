@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row">
+      <% @books.each do |book| %>
+      <div class="col">
+        <p><%= link_to book.name, book%>
+        <p>
+      </div>
+        <% end %>
+    </div>
+  </div>

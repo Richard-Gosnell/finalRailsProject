@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/pages/_about', to: 'pages#_about'
   get '/pages/_contact', to: 'pages#_contact'
   get '/order/order', to: 'order#order'
+  get '/books/products/', to: 'books#products'
 end

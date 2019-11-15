@@ -5,7 +5,7 @@ class Author < ApplicationRecord
 
   validates :author_name, presence: true
 
-  def change
-    add_foreign_key :book, :book_name
+  def name
+    author_name
   end
 end

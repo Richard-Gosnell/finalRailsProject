@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_15_035918) do
+ActiveRecord::Schema.define(version: 2019_11_15_192000) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "site_description"
@@ -61,11 +61,13 @@ ActiveRecord::Schema.define(version: 2019_11_15_035918) do
   create_table "books", force: :cascade do |t|
     t.string "book_name"
     t.integer "page_count"
-    t.string "author"
-    t.string "genre"
     t.decimal "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "author_id"
+    t.integer "Genre_id"
+    t.index ["Genre_id"], name: "index_books_on_Genre_id"
+    t.index ["author_id"], name: "index_books_on_author_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -92,8 +94,6 @@ ActiveRecord::Schema.define(version: 2019_11_15_035918) do
 
   create_table "genres", force: :cascade do |t|
     t.string "genre"
-    t.string "book_name"
-    t.string "author"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -107,4 +107,6 @@ ActiveRecord::Schema.define(version: 2019_11_15_035918) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "books", "Genres"
+  add_foreign_key "books", "authors"
 end
