@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   root to: 'pages#index'
   get '/pages/_about', to: 'pages#_about'
   get '/pages/_contact', to: 'pages#_contact'
+  get '/order/order', to: 'order#order'
 end
