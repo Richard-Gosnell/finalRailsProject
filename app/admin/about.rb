@@ -2,6 +2,6 @@
 
 ActiveAdmin.register_page 'About' do
   content do
-    render partial: 'about'
+    render partial: 'pages/about'
   end
 end

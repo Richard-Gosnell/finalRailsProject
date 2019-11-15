@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root to: 'pages#index'
-  get '/pages/about', to: 'pages#about'
-  get '/pages/contact', to: 'pages#contact'
+  get '/pages/_about', to: 'pages#_about'
+  get '/pages/_contact', to: 'pages#_contact'
 end
