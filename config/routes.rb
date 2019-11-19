@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # resources :contacts, only: :show
 
   root to: 'pages#index'
-  get '/pages/_about', to: 'pages#_about'
+  get '/about/_about', to: 'about#_about'
   get '/contact/_contact', to: 'contact#_contact'
   get '/order/order', to: 'order#order'
   get '/books/book/', to: 'books#book'
