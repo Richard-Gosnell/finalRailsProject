@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :abouts, only: :show
 
   root to: 'pages#index'
-  get '/about/_about', to: 'about#_about'
+  get '/about/about', to: 'about#about'
   get '/contact/_contact', to: 'contact#_contact'
   get '/order/order', to: 'order#order'
   get '/books/book/', to: 'books#book'
