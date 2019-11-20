@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
       <% @books.each do |book| %>
+      <%= paginate @books %>
       <div class="col">
         <p><%= link_to book.name, book%><p>
       </div>
