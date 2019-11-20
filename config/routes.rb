@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  # resources :contacts, only: :show
-  resources :abouts, only: :show
+  resources :contacts
+  resources :abouts
 
   root to: 'pages#index'
   get '/about/about', to: 'about#about'
-  get '/contact/_contact', to: 'contact#_contact'
+  get '/contact/_contact' # , to: 'contact#_contact'
   get '/order/order', to: 'order#order'
   get '/books/book/', to: 'books#book'
 end

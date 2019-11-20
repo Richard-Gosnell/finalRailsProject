@@ -1,0 +1,2 @@
+class BookOrderController < ApplicationController
+end

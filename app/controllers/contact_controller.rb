@@ -4,6 +4,6 @@ class ContactController < ApplicationController
   # @contacts = ContactController.find(params[:id])
 
   def _contact
-    @contacts = Contact.find(params[:id])
+    @contacts = Contact.where('id = 1', params[:id])
   end
 end

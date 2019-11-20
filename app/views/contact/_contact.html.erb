@@ -9,15 +9,15 @@
         <div class="col-md-3 text-center">
             <ul class="list-unstyled mb-0">
                 <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p><%= contact.address %>, <% contact.city %> <% contact.province %> <% contact.postal_code %> </p>
+                    <p><%= @contacts.address %>, <%= @contacts.city %> <%= @contacts.province %> <%= @contacts.postal_code %> </p>
                 </li>
 
                 <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                    <p><% contact.phone %></p>
+                    <p><%= @contacts.phone %></p>
                 </li>
 
                 <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p><% contact.email_address %></p>
+                    <p><%= @contacts.email_address %></p>
                 </li>
             </ul>
         </div>

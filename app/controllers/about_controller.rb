@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AboutController < ApplicationController
-  def show
-    @about = about.order([:id])
+  def index
+    @about = About.find(params[:id])
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_025332) do
+ActiveRecord::Schema.define(version: 2019_11_20_014124) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "about_us_text"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_11_19_025332) do
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "book_id"
+    t.index ["book_id"], name: "index_book_orders_on_book_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -81,15 +83,8 @@ ActiveRecord::Schema.define(version: 2019_11_19_025332) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "customers", force: :cascade do |t|
-    t.integer "customer_ID"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "address"
-    t.integer "order_ID"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+# Could not dump table "customers" because of following StandardError
+#   Unknown type 'orderID' for column 'refences'
 
   create_table "genres", force: :cascade do |t|
     t.string "genre"
@@ -108,6 +103,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_025332) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "book_orders", "books"
   add_foreign_key "books", "authors"
   add_foreign_key "books", "genres"
   add_foreign_key "genres", "books"
