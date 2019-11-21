@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_20_182059) do
+ActiveRecord::Schema.define(version: 2019_11_21_223751) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "about_us_text"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_182059) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "author_id"
     t.integer "genre_id"
+    t.string "image"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["genre_id"], name: "index_books_on_genre_id"
   end

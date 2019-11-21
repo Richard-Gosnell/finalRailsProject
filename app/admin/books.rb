@@ -6,7 +6,7 @@ ActiveAdmin.register Book do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :book_name, :page_count, :author_id, :genre_id, :price
+  permit_params :book_name, :page_count, :author_id, :genre_id, :price, :image
   #
   # or
   #

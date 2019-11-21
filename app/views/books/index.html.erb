@@ -3,6 +3,7 @@
       <% @books.each do |book| %>
       <div class="col">
         <h3><%= link_to book.book_name, book %></h3>
+        <img src=<%= book.image %> alt="Book Cover" width="200" height="350">
       </div>
       <% end %>
     </div>

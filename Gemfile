@@ -5,6 +5,7 @@ ruby '2.6.3'
 
 # Carrierwave
 gem 'carrierwave'
+gem 'mini_magick'
 
 # Kaminari
 gem 'kaminari'
