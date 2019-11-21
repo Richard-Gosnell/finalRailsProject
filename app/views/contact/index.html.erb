@@ -7,19 +7,21 @@
 
         <!--Grid column-->
         <div class="col-md-3 text-center">
+        <% @contacts.each do |contact| %>
             <ul class="list-unstyled mb-0">
                 <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p><%= @contacts.address %>, <%= @contacts.city %> <%= @contacts.province %> <%= @contacts.postal_code %> </p>
+                    <p><%= contact.address %>, <%= contact.city %> <%= contact.province %> <%= contact.postal_code %> </p>
                 </li>
 
                 <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                    <p><%= @contacts.phone %></p>
+                    <p><%= contact.phone %></p>
                 </li>
 
                 <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p><%= @contacts.email_address %></p>
+                    <p><%= contact.email_address %></p>
                 </li>
             </ul>
+            <% end %>
         </div>
         <!--Grid column-->
 
