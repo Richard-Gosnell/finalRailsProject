@@ -9,9 +9,13 @@ Rails.application.routes.draw do
 
   # resources :contact
   resources :abouts
-  # resources :books
+  resources :books, :show do
+    collection do
+      get 'search_results'
+    end
+  end
 
-  root to: 'pages#index'
+  root to: 'books#index'
   get '/about/index', to: 'about#index'
   get '/contact/index', to: 'contact#index'
   get '/order/order', to: 'order#order'

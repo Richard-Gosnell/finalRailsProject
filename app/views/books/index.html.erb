@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
       <% @books.each do |book| %>
-      <%= paginate @books %>
       <div class="col">
-        <h3><%= book.book_name %></h3>
+        <h3><%= link_to book.book_name, book %></h3>
       </div>
-        <% end %>
+      <% end %>
     </div>
+    <%= paginate @books %>
   </div>
