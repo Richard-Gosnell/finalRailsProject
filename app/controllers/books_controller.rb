@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  # def show
-  #  @books = Book.order('book_name').page(params[:page]).per(5)
-  # end
-
   def index
     @books = Book.order('book_name').page(params[:page]).per(4)
   end
@@ -13,7 +9,8 @@ class BooksController < ApplicationController
     @books = Book.find(params[:id])
   end
 
-  def search_results
-    @query
+  def search
+    @search_word = params[:search]
+    @results = Book.where('book_name LIKE :search', search: "%#{@search_word}%")
   end
 end

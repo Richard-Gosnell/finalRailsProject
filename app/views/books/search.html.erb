@@ -1,0 +1,8 @@
+<div>
+  <h2>Search Results</h2>
+
+   <% @results.each do |result| %>
+        <%= link_to result.book_name, result %><br>
+    <% end %>
+</div>
+
