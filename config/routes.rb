@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :site_users
   # get 'about/about_us_text:sting'
   devise_for :admin_users, ActiveAdmin::Devise.config
   # devise_for :admin_users, ActiveAdmin::Devise.config

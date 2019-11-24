@@ -12,5 +12,6 @@ class BooksController < ApplicationController
   def search
     @search_word = params[:search]
     @results = Book.where('book_name LIKE :search', search: "%#{@search_word}%")
+    @results = Book.includes(:genre).where('genre_id LIKE :search', search: "%#{@search_word}%")
   end
 end

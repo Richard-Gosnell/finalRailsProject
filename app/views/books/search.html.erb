@@ -3,6 +3,7 @@
 
    <% @results.each do |result| %>
         <%= link_to result.book_name, result %><br>
+        <%= result.genre.name %>
     <% end %>
 </div>
 
