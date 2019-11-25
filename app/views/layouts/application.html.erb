@@ -12,7 +12,13 @@
   </head>
 
   <body>
-  site_user_session
+  <% site_user_session %>
+  <% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="<%= root_path %>">Express Books</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +32,10 @@
           </li>
           <% if site_user_signed_in? %>
             <li class="nav-item">
-              <a class="nav-link" href="<%= destroy_user_session_path %>">Log Out<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">My Account<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= destroy_site_user_session_path %>">Log Out<span class="sr-only">(current)</span></a>
             </li>
           <% else %>
             <li class="nav-item">
