@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :site_users, controllers: { sessions: 'site_users/sessions' }
-  resources :site_users
+  devise_for :site_users, path: 'auth', path_names: { sign_out: 'logout' } # controllers: { sessions: 'site_users/sessions' }
+  # resources :site_users
 
   # get 'about/about_us_text:sting'
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -19,4 +19,9 @@ Rails.application.routes.draw do
   get '/order/order', to: 'order#order'
   get '/books/index/', to: 'books#index'
   get '/search', to: 'books#search', as: 'search_page'
+
+  # get 'auth/logout', to: 'auth#logout', as: :destroy_site_user_session
+  # devise_for :site_users do
+  #  get '/site_users/sign_out', to: 'devise/sessions#destroy'
+  # end
 end
