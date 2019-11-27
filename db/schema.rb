@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_192422) do
+ActiveRecord::Schema.define(version: 2019_11_27_014908) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "about_us_text"
@@ -91,9 +91,10 @@ ActiveRecord::Schema.define(version: 2019_11_25_192422) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "postalcode"
-    t.string "email_address"
     t.integer "province_id"
+    t.integer "site_user_id"
     t.index ["province_id"], name: "index_customers_on_province_id"
+    t.index ["site_user_id"], name: "index_customers_on_site_user_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -129,6 +130,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_192422) do
   add_foreign_key "books", "authors"
   add_foreign_key "books", "genres"
   add_foreign_key "customers", "provinces"
+  add_foreign_key "customers", "site_users"
   add_foreign_key "genres", "books"
   add_foreign_key "orders", "customers"
 end
