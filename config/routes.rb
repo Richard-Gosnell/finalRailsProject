@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/contact/index', to: 'contact#index'
   get '/order/order', to: 'order#order'
   get '/books/index/', to: 'books#index'
+  get '/customers/_customer', to: 'customers#_customer'
   get '/search', to: 'books#search', as: 'search_page'
 
   # get 'auth/logout', to: 'auth#logout', as: :destroy_site_user_session

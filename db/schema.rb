@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_184409) do
+ActiveRecord::Schema.define(version: 2019_11_25_192422) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "about_us_text"
@@ -84,8 +84,17 @@ ActiveRecord::Schema.define(version: 2019_11_25_184409) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-# Could not dump table "customers" because of following StandardError
-#   Unknown type '' for column 'refences'
+  create_table "customers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "postalcode"
+    t.string "email_address"
+    t.integer "province_id"
+    t.index ["province_id"], name: "index_customers_on_province_id"
+  end
 
   create_table "genres", force: :cascade do |t|
     t.string "genre"
@@ -119,6 +128,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_184409) do
   add_foreign_key "book_orders", "books"
   add_foreign_key "books", "authors"
   add_foreign_key "books", "genres"
+  add_foreign_key "customers", "provinces"
   add_foreign_key "genres", "books"
   add_foreign_key "orders", "customers"
 end
