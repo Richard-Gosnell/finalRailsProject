@@ -32,10 +32,10 @@
           </li>
           <% if site_user_signed_in? %>
             <li class="nav-item">
-              <a class="nav-link" href="<%= customers__customer_path %>">My Account<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="<%= customers__customers_path %>">My Account<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<%= destroy_site_user_session_path %>">Log Out<span class="sr-only">(current)</span></a>
+              <%= link_to('Log Out', destroy_site_user_session_path, method: :delete) %>
             </li>
           <% else %>
             <li class="nav-item">

@@ -2,9 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :site_users, path: 'auth', path_names: { sign_out: 'logout' } # controllers: { sessions: 'site_users/sessions' }
-  # resources :site_users
 
-  # get 'about/about_us_text:sting'
   devise_for :admin_users, ActiveAdmin::Devise.config
   # devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -18,8 +16,11 @@ Rails.application.routes.draw do
   get '/contact/index', to: 'contact#index'
   get '/order/order', to: 'order#order'
   get '/books/index/', to: 'books#index'
-  get '/customers/_customer', to: 'customers#_customer'
+  get '/customers/new', to: 'customers#new'
+  get '/customers/_customers', to: 'customers#_customer'
   get '/search', to: 'books#search', as: 'search_page'
+
+  # devise_for :site_user, controllers: { registrations: 'registrations' }
 
   # get 'auth/logout', to: 'auth#logout', as: :destroy_site_user_session
   # devise_for :site_users do
