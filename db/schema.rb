@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_193229) do
+ActiveRecord::Schema.define(version: 2019_11_28_235227) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "about_us_text"
@@ -51,13 +51,13 @@ ActiveRecord::Schema.define(version: 2019_11_28_193229) do
   end
 
   create_table "book_orders", force: :cascade do |t|
-    t.string "book_name"
-    t.integer "orderID"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "book_id"
+    t.integer "order_id"
     t.index ["book_id"], name: "index_book_orders_on_book_id"
+    t.index ["order_id"], name: "index_book_orders_on_order_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -105,13 +105,21 @@ ActiveRecord::Schema.define(version: 2019_11_28_193229) do
     t.index ["book_id"], name: "index_genres_on_book_id"
   end
 
-# Could not dump table "orders" because of following StandardError
-#   Unknown type '' for column 'refences'
+  create_table "orders", force: :cascade do |t|
+    t.decimal "taxes"
+    t.decimal "total_cost"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "completed_order"
+    t.integer "customer_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
 
   create_table "provinces", force: :cascade do |t|
     t.string "province_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "taxes"
   end
 
   create_table "site_users", force: :cascade do |t|
@@ -122,11 +130,14 @@ ActiveRecord::Schema.define(version: 2019_11_28_193229) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
     t.index ["email"], name: "index_site_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_site_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_site_users_on_username", unique: true
   end
 
   add_foreign_key "book_orders", "books"
+  add_foreign_key "book_orders", "orders"
   add_foreign_key "books", "authors"
   add_foreign_key "books", "genres"
   add_foreign_key "customers", "provinces"

@@ -1,5 +1,27 @@
 <div>
     <h2>Order Summary</h2>
+    <ul class="list-group">
+    <% if site_user_signed_in? %>
+    <% if @cart.empty? %>
+                <p><b>No items in cart</b></p>
+            <% else %></li>
+            <% book_price = 0 %>
+            <% @cart.each do |book| %>
+                <li class="list-group-item"><%= book.book_name %> - <%= book.price %> - <%= link_to 'remove', remove_from_cart_path(book.id), method: :delete %></li>
+                <% book_price += book.price %>
+            <% end %>
+            <li class="list-group-item list-group-item-info">Subtotal: <%= book_price %>$</li>
+            <% taxes = (book_price * site_user.customer.province.taxes) %>
+                                <!-- Table      Table     Table  column   -->
+            <li class="list-group-item list-group-item-info">Taxes: $ <%= taxes %></li>
+            <li class="list-group-item list-group-item-dark">Grand Total: $<%= book_price + gst + pst%></li>
+        <% end %>
+    </ul>
+    <% else %>
+    <ul class="list-group">
+    <li class="list-group-item"></li>
+    </ul>
+    <% end %>
 </div>
 <div>
     <h2>Pay via PayPal</h2>

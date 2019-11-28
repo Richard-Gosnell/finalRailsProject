@@ -57,11 +57,11 @@
           <details>
             <summary>My Cart</summary>
             <ul>
-              <li class="nav-item"><% if @cart.empty? %>
-              <p><b>No items in cart</b></p>
-              <% else %></li>
+              <% if @cart.empty? %><li class="nav-item">
+                <p><b>No items in cart</b></p></li>
+              <% else %>
               <% @cart.each do |book| %>
-              <li class="nav-item"><%= book.book_name %> - <%= link_to 'remove', remove_from_cart_path(book.id), method: :delete %></li>
+                <li class="nav-item"><%= book.book_name %> - <%= link_to 'remove', remove_from_cart_path(book.id), method: :delete %></li>
               <% end %>
             <% end %>
             </ul>
@@ -80,8 +80,6 @@
       </div>
     </nav>
     <%= yield %>
-
-    <%= debug session[:cart] %>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

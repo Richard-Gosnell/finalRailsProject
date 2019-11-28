@@ -25,7 +25,6 @@ class ApplicationController < ActionController::Base
 
   def initialize_session
     session[:cart] ||= []
-    # @cartItems = session[:cart][:q]
   end
 
   def load_cart

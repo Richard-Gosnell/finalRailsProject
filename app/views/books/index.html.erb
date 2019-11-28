@@ -5,7 +5,7 @@
         <h3><%= link_to book.book_name, book %></h3>
         <img src=<%= book.image %> alt="Book Cover" width="200" height="350">
         <p>Price: $<%= book.price %></p>
-        <%= link_to 'Add to cart', add_to_cart_path(book.id), method: :post %></p>
+        <%= link_to 'Add to cart', add_to_cart_path(book.id), method: :post %>
       </div>
       <% end %>
     </div>
