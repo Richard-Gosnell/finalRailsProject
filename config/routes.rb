@@ -10,14 +10,17 @@ Rails.application.routes.draw do
 
   resources :abouts
   resources :books
+  resources :customers
 
   root to: 'books#index'
   get '/about/index', to: 'about#index'
   get '/contact/index', to: 'contact#index'
   get '/order/order', to: 'order#order'
   get '/books/index/', to: 'books#index'
-  get '/customers/new', to: 'customers#new'
-  get '/customers/_customers', to: 'customers#_customer'
+  # get '/customers/new', to: 'customers#new'
+  # get '/customers/show/:id', to: 'customers#show', as: customer_show
+  post 'books/add_to_cart/:id', to: 'books#add_to_cart', as: 'add_to_cart'
+  delete 'books/remove_from_cart/:id', to: 'books#remove_from_cart', as: 'remove_from_cart'
   get '/search', to: 'books#search', as: 'search_page'
 
   # devise_for :site_user, controllers: { registrations: 'registrations' }

@@ -1,9 +1,10 @@
 <div class="book">
   <h2><%= @books.book_name %> - Details</h2>
   <img src=<%= @books.image %> alt="Book Cover" width="200" height="350">
-  <ul>
-    <li>Author: <%= @books.author.author_name %></li>
-    <li>Genre: <%= @books.genre.genre %></li>
-    <li>Price: $<%= @books.price %></li>
+  <ul class='list-group'>
+    <li class="list-group-item">Author: <%= @books.author.author_name %></li>
+    <li class="list-group-item">Genre: <%= @books.genre.genre %></li>
+    <li class="list-group-item">Price: $<%= @books.price %></li>
+    <li class="list-group-item"><%= link_to 'Add to cart', add_to_cart_path(@books.id), method: :post %></li>
   </ul>
 </div>

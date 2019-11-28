@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
     <title>Express Books</title>
     <%= csrf_meta_tags %>
@@ -32,7 +32,7 @@
           </li>
           <% if site_user_signed_in? %>
             <li class="nav-item">
-              <a class="nav-link" href="<%= customers__customers_path %>">My Account<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="<%=  %>">My Account<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <%= link_to('Log Out', destroy_site_user_session_path, method: :delete) %>
@@ -53,12 +53,26 @@
           </li>
           </ul>
           <ul class="navbar-nav mr-auto">
+          <li>
+          <details>
+            <summary>My Cart</summary>
+            <ul>
+              <li class="nav-item"><% if @cart.empty? %>
+              <p><b>No items in cart</b></p>
+              <% else %></li>
+              <% @cart.each do |book| %>
+              <li class="nav-item"><%= book.book_name %> - <%= link_to 'remove', remove_from_cart_path(book.id), method: :delete %></li>
+              <% end %>
+            <% end %>
+            </ul>
+          </details>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= order_order_url %>">My Cart</a>
+            <a class="nav-link" href="<%= order_order_url %>">Checkout</a>
           </li>
         </ul>
         <!--<form class="form-inline my-2 my-lg-0">-->
-        <%= form_tag(search_page_path, :method => "get", class: 'form-control mr-sm-2', type: 'search', placeholder: 'Search') do %>
+        <%= form_tag(search_page_path, :method => "get", class: 'form-control mr-sm-2') do %>
           <%= search_field_tag :search, params[:search], placeholder: 'Search', class: 'form-control' %>
           <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
           <% end %>
@@ -66,6 +80,9 @@
       </div>
     </nav>
     <%= yield %>
+
+    <%= debug session[:cart] %>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

@@ -1,17 +1,18 @@
 <div class = 'container'>
   <h2 class="h1-responsive font-weight-bold text-center my-4">Update account info</h2>
-  <%= form_with model: @customers (url: "customers/_customer", method: "post") do %>
-    <%= label_tag (:first_name, "Your First Name: ") %>
-    <%= text_field_tag (:first_name) %>
-    <%= label_tag (:last_name, "Your Last Name: ") %>
-    <%= text_field_tag (:last_name) %>
-    <%= label_tag (:address, "Address: ") %>
-    <%= text_field_tag (:address) %>
-    <%= label_tag (:postalcode, "Postal Code: ") %>
-    <%= text_field_tag (:postalcode) %>
-    <%= label_tag (:email_address, "Email Address: ") %>
-    <%= text_field_tag (:email_address) %>
-    <%= submit_tag %>
+  <%= form_for @customers, url: {action: "customers/_customer"} do |f| %>
+    <%= f.label :first_name, "Your First Name: " %>
+    <%= f.text_field :first_name %>
+    <%= f.label :last_name, "Your Last Name: " %>
+    <%= f.text_field :last_name %>
+    <%= f.label :address, "Address: " %>
+    <%= f.text_field :address %>
+    <%= select_tag(:province, options_for_select([province_name])) %>
+    <%= f.label :postalcode, "Postal Code: " %>
+    <%= f.text_field :postalcode %>
+    <%= f.label :email_address, "Email Address: " %>
+    <%= f.text_field :email_address %>
+    <%= f.submit_tag %>
   <% end %>
   <h5 class="h5-responsive font-weight-bold text-center my-4">Feel free to call if you have any diffuclty.</h5>
 </div>
