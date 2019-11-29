@@ -6,4 +6,8 @@ class Book < ApplicationRecord
   has_many :book_orders
 
   validates :book_name, :price, presence: true
+
+  def name
+    book_name
+  end
 end

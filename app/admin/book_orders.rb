@@ -6,7 +6,7 @@ ActiveAdmin.register BookOrder do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :book_name, :orderID, :quantity, :book_id
+  permit_params :book_id, :orderID, :quantity, :book_id
   #
   # or
   #

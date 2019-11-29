@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/order/order', to: 'order#order'
   get '/books/index/', to: 'books#index'
   # get '/customers/new', to: 'customers#new'
-  # get '/customers/show/:id', to: 'customers#show', as: customer_show
+  get '/customers/show', to: 'customers#show', as: 'customer_show'
   post 'books/add_to_cart/:id', to: 'books#add_to_cart', as: 'add_to_cart'
   delete 'books/remove_from_cart/:id', to: 'books#remove_from_cart', as: 'remove_from_cart'
   get '/search', to: 'books#search', as: 'search_page'
